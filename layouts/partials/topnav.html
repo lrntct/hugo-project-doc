@@ -13,8 +13,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li {{ if eq .Section "docs" }} class="active" {{ end }}><a href="{{ "/docs/home/" | relURL }}">Docs</a></li>
-                <li {{ if eq .Section "blog" }} class="active" {{ end }}><a href="{{ "/blogs/" | relURL }}">Blog</a></li>
+                {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                {{ end}}
             </ul>
             <div class="navbar-right">
                 <form class="navbar-form navbar-left">
