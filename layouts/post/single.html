@@ -1,18 +1,42 @@
 {{ partial "header.html" . }}
 {{ partial "topnav.html" . }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well">
+                <h4>RECENT POSTS</h4>
+                <ul class="list-unstyled post-list-container">
+                    {{ range first 1 (where .Site.Pages "Section" "post") }}
+                    <li><a href="{{ .URL }}"{{ if eq .Title $.Data.Page.Title }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
+                    {{ end }}
+                    <li><a href=""> All posts ...</a></li>
+                </ul>
+            </div>
+        </div>
 
-<div class="post">
-
-    <header class="post-header">
-        <h1 class="post-title">{{ .Title }}</h1>
-        <p>{{ .Date.Format "2 January 2006" }}</p>
-    </header>
-
-    <article class="post-content">
-        {{ .Content }}
-    </article>
-
+        <div class="col-md-8">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Date.Format "2 January 2006" }}{{ if .Params.Author }} • {{ .Params.Author }}{{ end }}</p>
+            <div  id="markdown-content-container">{{ .Content }}</div>
+            <hr>
+            <ul class="pager">
+                {{ if .Prev }}
+                <li class="previous">
+                    <a href="{{ .Prev.URL | relURL (where .Data.Pages "Section" "post")}}">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> Older
+                    </a>
+                </li>
+                {{ end }}
+                {{ if .Next }}
+                <li class="next">
+                    <a href="{{ .Next.URL | relURL (where .Data.Pages "Section" "post")}}">
+                      Newer <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
 </div>
-
 {{ partial "footer.html" . }}
 {{ partial "js_files.html" . }}

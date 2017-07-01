@@ -7,8 +7,8 @@
             <div class="well">
                 <h4>RECENT POSTS</h4>
                 <ul class="list-unstyled post-list-container">
-                    {{ range .Data.Pages }}
-                    <li><a href="{{ .URL }}">{{ .Title}}</a></li>
+                    {{ range where .Site.Pages "Section" "post" }}
+                    <li><a href="{{ .URL }}"{{ if eq .Title $.Data.Page.Title }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
                     {{ end }}
                     <li><a href=""> All posts ...</a></li>
                 </ul>
