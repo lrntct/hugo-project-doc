@@ -1,0 +1,46 @@
+{{ partial "header.html" . }}
+{{ partial "topnav.html" . }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well">
+                <h4>RECENT POSTS</h4>
+                <ul class="list-unstyled post-list-container">
+                    {{ range .Data.Pages }}
+                    <li><a href="{{ .URL }}">{{ .Title}}</a></li>
+                    {{ end }}
+                    <li><a href=""> All posts ...</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            {{ range first 1 (where .Data.Pages "Section" "post") }}
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Date.Format "2 January 2006" }}{{ if .Params.Author }} • {{ .Params.Author }}{{ end }}</p>
+            <div  id="markdown-content-container">{{ .Content }}</div>
+            <hr>
+            <ul class="pager">
+                {{ if .Prev (where .Data.Pages "Section" "post")}}
+                <li class="previous">
+                    <a href="{{ .Prev.URL | relURL (where .Data.Pages "Section" "post")}}">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i> Older
+                    </a>
+                </li>
+                {{ end }}
+                {{ if .Next (where .Data.Pages "Section" "post")}}
+                <li class="next">
+                    <a href="{{ .Next.URL | relURL (where .Data.Pages "Section" "post")}}">
+                      Newer <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+            {{ end}}
+        </div>
+    </div>
+</div>
+
+{{ partial "footer.html" . }}
+{{ partial "js_files.html" . }}

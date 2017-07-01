@@ -1,0 +1,14 @@
+
+
+<section id="main">
+  <div>
+   <h1 id="title">{{ .Title }}</h1>
+        <ul id="list">
+            {{ range .Data.Pages }}
+                <a href="{{ .URL }}">{{ .Title}}</a>
+            {{ end }}
+        </ul>
+  </div>
+</section>
+
+
