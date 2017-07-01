@@ -1,0 +1,10 @@
+<footer class="footer">
+    <div class="container">
+
+        <p class="text-center">
+            {{ .Site.Title }} {{ .Site.LastChange.Format "2006" }} |
+            Powered by <a href="{{ $.Site.Params.github | safeURL }}">Hugo Fancy doc</a>
+        </p>
+        <!-- <p class="text-muted">Place sticky footer content here.</p> -->
+    </div>
+</footer>
