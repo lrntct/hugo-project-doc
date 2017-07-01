@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
             <a class="navbar-brand" href="{{ .Site.BaseURL }}/">
-                <span><img src="{{ .Site.BaseURL }}/img/logonav.png" style="margin-top: -14px; width:40px;"></span> {{ .Site.Title }}
+                <span><img src="{{ .Site.Params.nav_img | relURL }}" style="margin-top: -14px; width:40px;"></span> {{ .Site.Title }}
             </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
