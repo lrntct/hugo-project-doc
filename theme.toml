@@ -1,0 +1,18 @@
+name = "fancy doc"
+license = "MIT"
+licenselink = "https://github.com/lrntct/hugo-fancy-doc/blob/master/LICENSE.md"
+description = "A Hugo theme for software project website."
+homepage = ""
+tags = ["documentation", "project"]
+features = ["", ""]
+min_version = 0.18
+
+[author]
+  name = "Laurent Courty"
+  homepage = "http://www.courty.me"
+
+# If porting an existing theme
+[original]
+  name = "jekyll-doc-theme"
+  homepage = "https://aksakalli.github.io/jekyll-doc-theme/"
+  repo = "https://github.com/aksakalli/jekyll-doc-theme"
