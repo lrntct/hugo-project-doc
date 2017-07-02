@@ -6,7 +6,6 @@
     <title>{{ .Site.Title }}</title>
     <meta name="description" content="">
 
-
     <link rel="stylesheet" href="{{ "/css/main.css" | relURL }}">
     <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | relURL }}">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500" type="text/css">
@@ -16,6 +15,8 @@
 
     <link rel="canonical" href="{{ .Site.BaseURL }}">
     <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "/feed.xml" | relURL | relURL }}" />
+
+      {{ template "_internal/google_analytics.html" . }}
 </head>
 
 
