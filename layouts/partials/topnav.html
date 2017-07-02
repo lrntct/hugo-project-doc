@@ -17,7 +17,7 @@
         {{ range .Site.Menus.main }}
           {{ $is := $currentNode.IsMenuCurrent "main" . }}
           {{ $has := $currentNode.HasMenuCurrent "main" . }}
-          <li {{if $has }}class="active"{{ end }}><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          <li {{if or $has $is }}class="active"{{ end }}><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
         {{ end}}
       </ul>
         <div class="navbar-right">
