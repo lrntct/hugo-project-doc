@@ -1,22 +1,22 @@
 <h1>{{ .Title }}</h1>
 <p>{{ .Date.Format "2 January 2006" }}{{ with .Params.Author }} • {{ . }}{{ end }}</p>
-<div  id="markdown-content-container">{{ .Content }}</div>
+<div id="markdown-content-container">{{ .Content }}</div>
 <hr>
 
 <ul class="pager">
 {{ if .PrevInSection }}
 <li class="previous">
-    <a href="{{ .PrevInSection.Permalink }}">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i> Older
-    </a>
+  <a href="{{ .PrevInSection.Permalink }}">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i> Older
+  </a>
 </li>
 {{ end }}
 
 {{ if .NextInSection }}
 <li class="next">
-    <a href="{{ .NextInSection.Permalink }}">
-      Newer <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    </a>
+  <a href="{{ .NextInSection.Permalink }}">
+    Newer <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  </a>
 </li>
 {{ end }}
 </ul>
