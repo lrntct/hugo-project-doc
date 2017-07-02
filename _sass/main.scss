@@ -42,6 +42,11 @@ body {
   background-color: $gray-lighter;
 }
 
+.collapsing {
+    -webkit-transition: none;
+    transition: none;
+}
+
 .post-list-container {
   li a.active {
     font-weight: bold;

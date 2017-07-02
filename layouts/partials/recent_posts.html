@@ -1,16 +1,27 @@
+{{ $currentPage := . }}
+{{ $whereP := (where .Site.Pages "Section" "blog") }}
+{{ $lenP := len $whereP }}
+{{ $numP := 5 }}
 <div class="well">
 <h4>Recent posts</h4>
+
+{{- if gt $lenP $numP -}}
+<a role="button" data-toggle="collapse" data-target="#firstposts,#allposts">See all</a>
+{{- end -}}
+
 <ul class="list-unstyled post-list-container">
-  {{ $currentPage := . }}
-  {{ $whereP := (where .Site.Pages "Section" "blog") }}
-  {{ $lenP := len $whereP }}
-  {{ $numP := 5 }}
-  {{ range first $numP $whereP }}
+  <div id="firstposts" class="collapse in">
+    {{ range first $numP $whereP }}
+      <li><a href="{{ .URL }}"{{ if eq .Title $currentPage.Title }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
+    {{ end }}
+  </div>
+
+  <div id="allposts" class="collapse">
+    {{ range $whereP }}
     <li><a href="{{ .URL }}"{{ if eq .Title $currentPage.Title }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
-  {{ end }}
-  {{ if gt $lenP $numP}}
-  <li><a href="/postlist"> All posts ...</a></li>
-  {{ end }}
+    {{ end }}
+  </div>
+
 
 </ul>
 </div>
