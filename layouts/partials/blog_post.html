@@ -1,5 +1,5 @@
 <h1>{{ .Title }}</h1>
-<p>{{ .Date.Format "2 January 2006" }}{{ if .Params.Author }} • {{ .Params.Author }}{{ end }}</p>
+<p>{{ .Date.Format "2 January 2006" }}{{ with .Params.Author }} • {{ . }}{{ end }}</p>
 <div  id="markdown-content-container">{{ .Content }}</div>
 <hr>
 
