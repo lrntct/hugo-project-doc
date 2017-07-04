@@ -1,34 +1,23 @@
 {{ partial "header.html" . }}
 {{ partial "topnav.html" . }}
 
-<div class="header-container jumbotron">
-    <div class="container">
-        <h1>Hugo theme for software project websites</h1>
-        <p>Simple and modern design for publishing blog posts, documentation and many more things for your project.
-          You can now clone and start to create a website for your project.</p>
-        <p><a class="btn btn-primary btn-lg" href="{{ "/docs/home/" | relURL }}" role="button">Learn more</a></p>
-    </div>
-</div>
+{{ range where .Data.Pages "Type" "jumbotron"}}
+{{ partial "home/jumbotron.html" .}}
+{{ end }}
 
 <div class="container">
-
-    <div class="row">
-        <div class="col-md-6">
-            {{ .Content }}
-        </div>
-        <div class="col-md-6 text-center">
-            <img src="img/hugo.png" alt="" class="img-responsive">
-        </div>
-    </div>
+  {{ range where .Data.Pages "Type" "text_img"}}
+  {{ partial "home/text_img.html" .}}
+  {{ end }}
 
     <hr>
 
     <div class="row">
-        {{ range $.Site.Params.card }}
+        {{ range where .Data.Pages "Type" "card"}}
         <div class="col-sm-4">
-            <h1 class="text-center"><i class="fa fa-{{ .icon }}" aria-hidden="true"></i></h1>
-            <h3 class="text-center">{{ .title }}</h3>
-            <p>{{ .text }}</p>
+            <h1 class="text-center"><i class="fa fa-{{ .Params.icon }}" aria-hidden="true"></i></h1>
+            <h3 class="text-center">{{ .Title }}</h3>
+            <p>{{ .Content }}</p>
         </div>
         {{ end }}
     </div>
