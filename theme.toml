@@ -1,11 +1,11 @@
-name = "fancy doc"
+name = "project doc"
 license = "MIT"
-licenselink = "https://github.com/lrntct/hugo-fancy-doc/blob/master/LICENSE.md"
+licenselink = "https://github.com/lrntct/hugo-project-doc/blob/master/LICENSE.md"
 description = "A Hugo theme for software project website."
 homepage = ""
 tags = ["documentation", "project"]
 features = ["", ""]
-min_version = 0.18
+min_version = 0.22
 
 [author]
   name = "Laurent Courty"
