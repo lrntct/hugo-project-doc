@@ -1,0 +1,17 @@
+{{ partial "header.html" . }}
+{{ partial "topnav.html" . }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          {{ partial "docs_nav.html" . }}
+        </div>
+
+        <div class="col-md-8">
+          {{ partial "doc_elem.html" . }}
+        </div>
+    </div>
+</div>
+
+{{ partial "footer.html" . }}
+{{ partial "js_files.html" . }}

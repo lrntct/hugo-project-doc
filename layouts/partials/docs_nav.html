@@ -1,0 +1,45 @@
+{{ $sect := (.Site.GetPage "section" .Section) }}
+
+{{ $currentNode := . }}
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+<div class="highlightable">
+    <ul class="topics">
+        {{ template "section-tree-nav" dict "sect" $sect "currentnode" $currentNode }}
+    </ul>
+  </div>
+</nav>
+
+<!-- templates -->
+{{ define "section-tree-nav" }}
+  {{ $currentNode := .currentnode }}
+
+  {{ range $index, $element := .sect.Sections}}
+
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse-{{- $index -}}" aria-expanded="false" aria-controls="collapse-{{- $index -}}">
+            {{ $element.Title }}
+          </a>
+        </h4>
+      </div>
+      <div id="collapse-{{- $index -}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+        <ul class="list-group">
+          {{ range .Pages }}
+            <a class="list-group-item {{if eq $currentNode.Permalink .Permalink }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  {{ end }}
+  {{/*
+  {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode }}
+  */}}
+{{ end }}
+
+</div>
+
+
+
