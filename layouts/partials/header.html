@@ -1,22 +1,22 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
+  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+  {{ .Hugo.Generator }}
 
-    <title>{{ .Site.Title }}</title>
-    <meta name="description" content="">
+  <title>{{ .Site.Title }}</title>
 
-    <link rel="stylesheet" href="{{ "/css/main.css" | relURL }}">
-    <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | relURL }}">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500" type="text/css">
+  <link rel="stylesheet" href="{{ "/css/main.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | relURL }}">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500" type="text/css">
 
+  <link rel="shortcut icon" href="{{ "/favicon.ico?1" | relURL }}">
 
-    <link rel="shortcut icon" href="{{ "/favicon.ico?1" | relURL }}">
+  <link rel="canonical" href="{{ .Site.BaseURL }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "/feed.xml" | relURL | relURL }}" />
 
-    <link rel="canonical" href="{{ .Site.BaseURL }}">
-    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "/feed.xml" | relURL | relURL }}" />
-
-      {{ template "_internal/google_analytics.html" . }}
+  {{ template "_internal/google_analytics.html" . }}
 </head>
 
 
