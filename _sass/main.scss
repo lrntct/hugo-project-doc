@@ -16,14 +16,13 @@ body {
 }
 .header-container {
   background-color: black;
-  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../img/bg.jpg') no-repeat 50% 0;
   color: #fff;
   min-height: 95vh;
   h1 {
     color: #fff;
+    text-shadow: 1px 1px 1px #505050;
   }
   // background-attachment: fixed;
-  background-size: cover;
   background-position: center 36%;
   margin-top: -37px;
 }
