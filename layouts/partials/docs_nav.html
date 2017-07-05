@@ -28,7 +28,7 @@
       <div id="collapse-{{- $index -}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
         <ul class="list-group">
           {{ range .Pages }}
-            <a class="list-group-item {{if eq $currentNode.Permalink .Permalink }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }}</a>
+            <a class="list-group-item {{if eq $currentNode.UniqueID .UniqueID }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }}</a>
           {{ end }}
         </ul>
       </div>
