@@ -7,18 +7,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ .Site.BaseURL }}/">
+      <a class="navbar-brand" href="{{ .Site.BaseURL }}">
         <span><img src="{{ .Site.Params.nav_img | relURL }}" style="margin-top: -14px; width:40px;"></span> {{ .Site.Title }}
       </a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         {{ $currentNode := . }}
-        {{ range .Site.Menus.main }}
-          {{ $is := $currentNode.IsMenuCurrent "main" . }}
-          {{ $has := $currentNode.HasMenuCurrent "main" . }}
-          <li {{if or $has $is }}class="active"{{ end }}><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-        {{ end}}
+        {{ range $.Site.Home.Sections }}
+        {{ if ne .Title "Homes" }}
+          <li {{if eq $currentNode.Title .Title }}class="active"{{ end }}><a href="{{ .Permalink }}">{{ .Title | singularize }}</a></li>
+        {{ end }}
+        {{ end }}
       </ul>
         <div class="navbar-right">
           <form class="navbar-form navbar-left">
