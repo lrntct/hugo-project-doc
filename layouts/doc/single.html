@@ -1,25 +1,7 @@
 {{ partial "header.html" . }}
 {{ partial "topnav.html" . }}
-{{ $sect := (.Site.GetPage "section" "doc") }}
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-          {{ partial "docs_nav.html" . }}
-        </div>
 
-        <div class="col-md-8">
-          {{ partial "doc_elem.html" . }}
-        </div>
-    </div>
-</div>
+{{ partial "doc_page.html" . }}
 
 {{ partial "footer.html" . }}
 {{ partial "js_files.html" . }}
-
-
-{{ define "section-nav" }}
-{{ range .sections }}
-<li{{ if .InSection $.current }} class="active" {{ end }}><a href = "{{ .RelPermalink }}">{{ .Title }}</a></li>
-{{ template "section-nav"  (dict "sections" .Sections "current" $.current ) }}
-{{ end }}
-{{ end }}
