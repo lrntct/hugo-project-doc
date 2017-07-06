@@ -6,22 +6,19 @@
 <h4>Recent posts</h4>
 
 {{- if gt $lenP $numP -}}
-<a role="button" data-toggle="collapse" data-target="#firstposts,#allposts">See all</a>
+<a role="button" data-toggle="collapse" data-target="#allposts">See all</a>
 {{- end -}}
 
 <ul class="list-unstyled post-list-container">
-  <div id="firstposts" class="collapse in">
+  <div id="firstposts">
     {{ range first $numP $sect.Pages }}
-      <li><a href="{{ .URL }}"{{ if eq .UniqueID $currentPage.UniqueID }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
-    {{ end }}
-  </div>
-
-  <div id="allposts" class="collapse">
-    {{ range $sect.Pages }}
     <li><a href="{{ .URL }}"{{ if eq .UniqueID $currentPage.UniqueID }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
     {{ end }}
   </div>
-
-
+  <div id="allposts" class="collapse">
+    {{ range after $numP $sect.Pages }}
+    <li><a href="{{ .URL }}"{{ if eq .UniqueID $currentPage.UniqueID }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
+    {{ end }}
+  </div>
 </ul>
 </div>
