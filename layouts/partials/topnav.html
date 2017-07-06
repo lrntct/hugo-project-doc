@@ -16,25 +16,25 @@
         {{ $currentNode := . }}
         {{ range .Site.Home.Sections }}
         {{ if ne .Title "Homes" }}
-          <li {{if .InSection $currentNode }}class="active"{{ end }}><a href="{{ .Permalink }}">{{ .Title | singularize }}</a></li>
+          <li {{if .InSection $currentNode }}class="active"{{ end }}><a href="{{ .Permalink }}">{{ .Title }}</a></li>
         {{ end }}
         {{ end }}
       </ul>
-        <div class="navbar-right">
-          <form class="navbar-form navbar-left">
-            <div class="form-group has-feedback">
-              <input data-search-input id="search-by" type="text" class="form-control"placeholder="Search...">
-              <label for="search-by"><i class="fa fa-search"></i></label>
-            </div>
-          </form>
-          <ul class="nav navbar-nav" aria-hidden="true">
-            {{ range $.Site.Params.social }}
-              <li>
-                <a href="{{ .link | safeURL }}" target="_blank"><i class="fa fa-{{ .icon }}"></i></a>
-              </li>
-            {{ end }}
-          </ul>
+      <div class="navbar-right">
+        <form class="navbar-form navbar-left">
+          <div class="form-group has-feedback">
+            <input data-search-input id="search-by" type="text" class="form-control" placeholder="Search...">
+            <label for="search-by"><i class="fa fa-search"></i></label>
           </div>
-      </div>
+        </form>
+        <ul class="nav navbar-nav" aria-hidden="true">
+          {{ range $.Site.Params.social }}
+            <li>
+              <a href="{{ .link | safeURL }}" target="_blank"><i class="fa fa-{{ .icon }}"></i></a>
+            </li>
+          {{ end }}
+        </ul>
+        </div>
+    </div>
   </div>
 </nav>
