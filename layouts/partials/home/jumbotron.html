@@ -1,15 +1,7 @@
-<head>
-<style>
-.header-container {
-    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1) ), url('{{ .Params.bgImage }}') no-repeat 50% 0;
-    background-size: cover;
-}
-</style>
-</head>
-
-<div class="header-container jumbotron">
+<div class="header-container jumbotron"
+     style="background: url('{{ .Params.bgImage }}');background-size: cover;">
   <div class="container">
-      <h1>{{ .Title }}</h1>
-      <p>{{ .Content }}</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Content }}</p>
   </div>
 </div>
