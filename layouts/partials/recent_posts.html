@@ -2,23 +2,25 @@
 {{ $sect := (.Site.GetPage "section" .Section) }}
 {{ $lenP := len $sect.Pages }}
 {{ $numP := 5 }}
-<div class="well">
-<h4>Recent posts</h4>
 
-{{- if gt $lenP $numP -}}
-<a role="button" data-toggle="collapse" data-target="#allposts">See all</a>
-{{- end -}}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      Recent posts (
+      {{- if gt $lenP $numP -}}
+      <a role="button" data-toggle="collapse" data-target="#allposts">See all</a>)
+      {{- end -}}
+    </h4>
+  </div>
 
-<ul class="list-unstyled post-list-container">
-  <div id="firstposts">
-    {{ range first $numP $sect.Pages }}
-    <li><a href="{{ .URL }}"{{ if eq .UniqueID $currentPage.UniqueID }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
-    {{ end }}
-  </div>
-  <div id="allposts" class="collapse">
-    {{ range after $numP $sect.Pages }}
-    <li><a href="{{ .URL }}"{{ if eq .UniqueID $currentPage.UniqueID }} class="active" {{ end }}>{{ .Title}}</a>  • {{ .Date.Format "2 January 2006" }}</li>
-    {{ end }}
-  </div>
-</ul>
+  <ul class="list-group">
+      {{ range first $numP $sect.Pages }}
+      <a class="list-group-item {{if eq $currentPage.UniqueID .UniqueID }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }} • {{ .Date.Format "2 January 2006" }}</a>
+      {{ end }}
+    <div id="allposts" class="collapse">
+      {{ range after $numP $sect.Pages }}
+      <a class="list-group-item {{if eq $currentPage.UniqueID .UniqueID }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }} • {{ .Date.Format "2 January 2006" }}</a>
+      {{ end }}
+    </div>
+  </ul>
 </div>
