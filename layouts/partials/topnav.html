@@ -21,18 +21,12 @@
         {{ end }}
       </ul>
         <div class="navbar-right">
-            <form class="navbar-form navbar-left">
-            <label for="search-by"><i class="fa fa-search"></i></label>
-            <input data-search-input id="search-by" type="text" placeholder="Search...">
-            <span data-search-clear=""><i class="fa fa-close"></i></span>
-            </form>
-<!--
+          <form class="navbar-form navbar-left">
             <div class="form-group has-feedback">
-              <input id="search-box" type="text" class="form-control" placeholder="Search...">
-              <i class="fa fa-search form-control-feedback"></i>
-             </div>
--->
-
+              <input data-search-input id="search-by" type="text" class="form-control"placeholder="Search...">
+              <label for="search-by"><i class="fa fa-search"></i></label>
+            </div>
+          </form>
           <ul class="nav navbar-nav" aria-hidden="true">
             {{ range $.Site.Params.social }}
               <li>

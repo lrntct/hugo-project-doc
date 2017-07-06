@@ -1,0 +1,26 @@
+.sey-list {
+  @extend .dropdown-menu;
+  z-index:99999;
+}
+.sey-show {
+   display: block;
+ }
+.sey-hide {
+  display: none;
+}
+.sey-item {
+  line-height: $line-height-base;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 7px;
+}
+.sey-item:hover {
+  background-color: $dropdown-link-active-bg;
+  color: $dropdown-link-active-color;
+}
+.sey-selected {
+  background-color: $dropdown-link-active-bg;
+  color: $dropdown-link-active-color;
+}
