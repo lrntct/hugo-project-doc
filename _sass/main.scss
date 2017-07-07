@@ -16,7 +16,7 @@ body {
 .header-container {
   background-color: black;
   color: #fff;
-  min-height: 95vh;
+  min-height: 70vh;
   h1 {
     color: #fff;
     text-shadow: 1px 1px 1px #505050;
@@ -59,4 +59,9 @@ body {
 }
 .navbar-form .has-feedback .form-control-feedback{
   top:10px
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
 }
