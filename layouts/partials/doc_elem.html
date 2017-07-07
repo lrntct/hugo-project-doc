@@ -1,12 +1,10 @@
 <h1>{{ .Title }}</h1>
 <div id="markdown-content-container">{{ .Content }}</div>
-
+<hr>
 <p class="text-center">
-  <br />
-  {{ if .IsPage }}
-  <a target="_blank" href="{{ .Site.Params.git_edit_address }}/{{ .File.Dir }}{{ .File.LogicalName }}" class="btn btn-default githubEditButton" role="button">
+  {{ if .Site.Params.git_edit_address }}
+  <a target="_blank" href="{{ .Site.Params.git_edit_address }}{{ .File.Dir }}{{ .File.LogicalName }}" class="btn btn-default githubEditButton" role="button">
     <i class="fa fa-pencil fa-lg"></i> Improve this page
   </a>
   {{ end }}
 </p>
-<hr>
