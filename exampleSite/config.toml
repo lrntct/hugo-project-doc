@@ -2,7 +2,7 @@ title = "Project Doc"
 baseurl = "/"
 languageCode = "en-gb"
 
-theme = "hugo-project-doc"
+theme = "project-doc"
 themesdir = "../.."
 
 # this is required for the search engine
