@@ -15,7 +15,7 @@
 {{ define "section-tree-nav" }}
   {{ $currentNode := .currentnode }}
 
-  {{ range $index, $element := .sect.Sections}}
+  {{ range $index, $element := .sect.Sections.ByWeight}}
 
   <div class="panel panel-default">
       <div class="panel-heading">
@@ -27,7 +27,7 @@
       </div>
       <div id="collapse-{{- $index -}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
         <ul class="list-group">
-          {{ range .Pages }}
+          {{ range .Pages.ByWeight }}
             <a class="list-group-item {{if eq $currentNode.UniqueID .UniqueID }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }}</a>
           {{ end }}
         </ul>
