@@ -6,10 +6,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h4 class="panel-title">
-      Recent posts (
-      {{- if gt $lenP $numP -}}
-      <a role="button" data-toggle="collapse" data-target="#allposts">See all</a>)
-      {{- end -}}
+      Recent posts
+      {{ if gt $lenP $numP }}
+      (<a role="button" data-toggle="collapse" data-target="#allposts">See all</a>)
+      {{ end }}
     </h4>
   </div>
 
@@ -17,10 +17,12 @@
       {{ range first $numP $sect.Pages }}
       <a class="list-group-item {{if eq $currentPage.UniqueID .UniqueID }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }} • {{ .Date.Format "2 January 2006" }}</a>
       {{ end }}
+    {{ if gt $lenP $numP }}
     <div id="allposts" class="collapse">
       {{ range after $numP $sect.Pages }}
       <a class="list-group-item {{if eq $currentPage.UniqueID .UniqueID }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }} • {{ .Date.Format "2 January 2006" }}</a>
       {{ end }}
     </div>
+    {{ end }}
   </ul>
 </div>
