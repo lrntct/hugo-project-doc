@@ -25,12 +25,14 @@
         {{ end }}
       </ul>
       <div class="navbar-right">
+        {{ if .Site.Params.search_enable }}
         <form class="navbar-form navbar-left">
           <div class="form-group has-feedback">
             <input data-search-input id="search-by" type="text" class="form-control" placeholder="Search...">
             <label for="search-by"><i class="fa fa-search"></i></label>
           </div>
         </form>
+        {{ end }}
         <ul class="nav navbar-nav" aria-hidden="true">
           {{ range $.Site.Params.social }}
             <li>
