@@ -19,6 +19,9 @@
           <li {{if .InSection $currentNode }}class="active"{{ end }}><a href="{{ .Permalink }}">{{ .Title }}</a></li>
         {{ end }}
         {{ end }}
+        {{ range .Site.Menus.ext }}
+        <li><a target="_blank" href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
       </ul>
       <div class="navbar-right">
         <form class="navbar-form navbar-left">
