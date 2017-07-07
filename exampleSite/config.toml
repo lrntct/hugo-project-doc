@@ -1,0 +1,34 @@
+title = "Project Doc"
+baseurl = "http://example.org/"
+languageCode = "en-gb"
+
+theme = "project-doc"
+
+# this is required for the search engine
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+page = [ "HTML"]
+
+[params]
+  # enable the search box
+  search_enable = true
+
+  # image appearing in the navigation bar
+  nav_img = "/img/hugo_small.png"
+  # Base URL to edit the documentation (link to the content)
+  git_edit_address = "https://github.com/lrntct/project-doc/tree/master/content/"
+
+  # icon is a font awesome name
+  [[params.social]]
+  icon = "github"
+  link = "https://github.com/lrntct/hugo-project-doc"
+
+  [[params.social]]
+  icon = "twitter"
+  link = "https://twitter.com/LaurentCourty"
+
+# add external links in the nav bar.
+# To add a section, create a new folder in the "content" directory
+[[menu.ext]]
+  name = "Hugo"
+  url = "https://gohugo.io/"
