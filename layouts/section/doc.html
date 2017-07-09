@@ -1,7 +1,6 @@
-{{ partial "header.html" . }}
-{{ partial "topnav.html" . }}
-
-{{ partial "doc_page.html" . }}
-
-{{ partial "footer.html" . }}
-{{ partial "js_files.html" . }}
+{{ $sect := (.Site.GetPage "section" .Section) }}
+{{ range first 1 $sect.Sections.ByWeight}}
+{{ range first 1 .Pages.ByWeight }}
+{{ .Render "single" }}
+{{ end }}
+{{ end }}
