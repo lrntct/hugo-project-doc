@@ -1,5 +1,24 @@
 {{ partial "header.html" . }}
 {{ partial "topnav.html" . }}
-{{ partial "default_page.html" . }}
+{{ $currentPage := . }}
+{{ $sect := (.Site.GetPage "section" .Section) }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <ul class="list-group">
+              {{ range $sect.Pages }}
+              <a class="list-group-item {{if eq $currentPage.UniqueID .UniqueID }}active{{ end }}" href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <h1>{{ .Title }}</h1>
+          <div id="markdown-content-container">{{ .Content }}</div>
+        </div>
+    </div>
+</div>
 {{ partial "footer.html" . }}
 {{ partial "js_files.html" . }}

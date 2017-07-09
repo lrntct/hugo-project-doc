@@ -1,5 +1,4 @@
-{{ partial "header.html" . }}
-{{ partial "topnav.html" . }}
-{{ partial "default_page.html" . }}
-{{ partial "footer.html" . }}
-{{ partial "js_files.html" . }}
+{{ $sect := (.Site.GetPage "section" .Section) }}
+{{ range first 1 $sect.Pages }}
+{{ .Render "single" }}
+{{ end }}
