@@ -1,5 +1,5 @@
 title = "Project Doc"
-baseurl = "/"
+baseurl = "http://project-doc.netlify.com/"
 languageCode = "en-gb"
 
 theme = "project-doc"
